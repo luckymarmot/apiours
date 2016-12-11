@@ -8,7 +8,7 @@ import Immutable from 'immutable'
 import path from 'path'
 import autoprefixer from 'autoprefixer'
 
-const staticPath = '/static/adminfrontend/'
+const staticPath = '/static/'
 
 class WebpackConfigBase {
   static node = Immutable.fromJS({

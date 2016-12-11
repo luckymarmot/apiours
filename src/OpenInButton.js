@@ -38,6 +38,8 @@ const getFilename = (name, format) => {
     return `${name}.raml.yaml`
   } else if (format === 'postman') {
     return `${name}.postman.json`
+  } else if (format === 'curl') {
+    return `${name}.curl.md`
   }
   return name
 }

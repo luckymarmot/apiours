@@ -21,25 +21,31 @@ class SearchResultComponent extends Component {
           <h3 className="title is-3">{item.get('title')}</h3>
           <p>{item.get('description')}</p>
         </div>
-        <div className="level-left tags-list">
-          <span className="tag">{item.get('version')}</span>
-          {this.renderExternalDocsLink()}
-          {this.renderSupportLink()}
-        </div>
-        <div className="level-left buttons-list">
-          <OpenInButtonComponent url={swaggerUrl}
-                                 name={item.get('title')}
-                                 formatName="Swagger"
-                                 format="swagger" />
-          <OpenInButtonComponent url={swaggerUrl}
-                                 name={item.get('title')}
-                                 formatName="RAML"
-                                 format="raml" />
-          <OpenInPawButtonComponent url={swaggerUrl} />
-          <OpenInButtonComponent url={swaggerUrl}
-                                 name={item.get('title')}
-                                 formatName="Postman"
-                                 format="postman" />
+        <div className="level">
+          <div className="level-left buttons-list">
+            <OpenInButtonComponent url={swaggerUrl}
+                                   name={item.get('title')}
+                                   formatName="Swagger"
+                                   format="swagger" />
+            <OpenInButtonComponent url={swaggerUrl}
+                                   name={item.get('title')}
+                                   formatName="RAML"
+                                   format="raml" />
+            <OpenInPawButtonComponent url={swaggerUrl} />
+            <OpenInButtonComponent url={swaggerUrl}
+                                   name={item.get('title')}
+                                   formatName="Postman"
+                                   format="postman" />
+            <OpenInButtonComponent url={swaggerUrl}
+                                   name={item.get('title')}
+                                   formatName="curl"
+                                   format="curl" />
+          </div>
+          <div className="level-right">
+            <span className="tag">{item.get('version')}</span>
+            {this.renderExternalDocsLink()}
+            {this.renderSupportLink()}
+          </div>
         </div>
       </div>
     </article>
@@ -91,7 +97,7 @@ export default class SearchComponent extends Component {
     const client = algoliasearch(ALGOLIA_ID, ALGOLIA_KEY)
     const index = client.initIndex('api-guru')
     this.state = {
-      searchText: null,
+      searchText: '',
       results: null,
       index: index,
       searchN: 0,
@@ -105,16 +111,31 @@ export default class SearchComponent extends Component {
         <input className="input is-large"
                type="text"
                placeholder="Search APIs…"
+               value={this.state.searchText}
                onChange={::this.onChange} />
         <i className="fa fa-search"></i>
       </p>
+      {this.renderSuggestions()}
       {this.renderResults()}
     </div>
   }
 
+  renderSuggestions() {
+    const { searchText } = this.state
+    if (searchText !== '') {
+      return null
+    }
+    return <p>
+      Try searching for{' '}
+      <a href="#" onClick={::this.onSuggestionClick}>Instagram</a>,{' '}
+      <a href="#" onClick={::this.onSuggestionClick}>Google</a>,{' '}
+      <a href="#" onClick={::this.onSuggestionClick}>Microsoft</a>…
+    </p>
+  }
+
   renderResults() {
     const { results, searchText } = this.state
-    if (results === null || results.size === 0 || searchText === null) {
+    if (results === null || results.size === 0 || searchText === '') {
       return null
     }
     return <div className="box">
@@ -125,12 +146,23 @@ export default class SearchComponent extends Component {
   }
 
   onChange(e) {
+    const searchText = e.target.value
+    this.setSearch(searchText)
+  }
+
+  onSuggestionClick(e) {
+    e.preventDefault()
+    e.stopPropagation()
+    const searchText = e.target.innerText
+    this.setSearch(searchText)
+  }
+
+  setSearch(searchText) {
     const { index } = this.state
     const searchN = this.state.searchN + 1
-    const searchText = e.target.value
     if (searchText === '' || !searchText) {
       this.setState({
-        searchText: null,
+        searchText: '',
         searchN: searchN
       })
     } else {

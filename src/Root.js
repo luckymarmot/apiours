@@ -6,12 +6,17 @@ require('./Root.styl')
 
 const HeaderComponent = () => {
   return <section className="hero is-primary is-large">
-      <div className="hero-head">
+    <div className="hero-head">
       <header className="nav">
+        <div className="nav-left">
+          <a className="nav-item">
+            <div className="img img-brand"></div>
+          </a>
+        </div>
         <div className="container">
           <div className="nav-right nav-menu">
             <a className="nav-item is-active">
-              APIs
+              APIOURS
             </a>
             <a className="nav-item"
                href="https://console.rest"
