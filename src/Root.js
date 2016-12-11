@@ -24,18 +24,23 @@ const HeaderComponent = () => {
               Console.REST
             </a>
             <a className="nav-item"
+               href="https://github.com/luckymarmot/API-Flow"
+               target="_blank">
+              API Flow
+            </a>
+            <a className="nav-item"
                href="https://paw.cloud"
                target="_blank">
               Paw
             </a>
             <span className="nav-item">
               <a className="button is-info is-inverted"
-                 href="https://github.com/luckymarmot/API-Flow"
+                 href="https://github.com/luckymarmot/apiours"
                  target="_blank">
                 <span className="icon">
                   <i className="fa fa-github"></i>
                 </span>
-                <span>API Flow</span>
+                <span>Fork on GitHub</span>
               </a>
             </span>
           </div>
