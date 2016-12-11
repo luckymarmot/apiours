@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 
 import SearchComponent from './SearchComponent'
 
+require('./Root.styl')
+
 const HeaderComponent = () => {
   return <section className="hero is-primary is-large">
       <div className="hero-head">
@@ -43,11 +45,17 @@ const FooterComponent = () => {
     <div className="container">
       <div className="content has-text-centered">
         <p>
-          <strong>APIs</strong> by <a href="https://paw.cloud">Paw</a>.
+          Made with <span className="icon is-small">
+            <i className="fa fa-heart"></i>
+          </span>{' '}
+          by <a href="https://paw.cloud" target="_blank">Paw</a>.
           The source code is licensed{' '}
-          <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
-          Content under MIT License by{' '}
-          <a href="https://apis.guru">APIs.guru</a>.
+          <a href="http://opensource.org/licenses/mit-license.php"
+             target="_blank">MIT</a>.
+          Content provided under MIT License by{' '}
+          <a href="https://apis.guru" target="_blank">APIs.guru</a>.
+          Search provided by{' '}
+          <a href="https://www.algolia.com" target="_blank">Algolia</a>.
         </p>
       </div>
     </div>

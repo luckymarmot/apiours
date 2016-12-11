@@ -2,28 +2,45 @@ import React, { Component } from 'react'
 import Immutable from 'immutable'
 import algoliasearch from 'algoliasearch'
 
+import OpenInButtonComponent from './OpenInButton'
+import OpenInPawButtonComponent from './OpenInPawButton'
+
 export const ALGOLIA_ID = 'MMPT2H8ZKX'
 export const ALGOLIA_KEY = 'e631f6dde8d6d06aa85ebf6c1d2286d7'
+
+require('./SearchComponent.styl')
 
 class SearchResultComponent extends Component {
   render() {
     const { item } = this.props
-    return <article className="media">
+    const swaggerUrl = item.get('swaggerUrl', null)
+    return <article className="media search-result-item">
       {this.renderImage()}
       <div className="media-content">
         <div className="content">
           <h3 className="title is-3">{item.get('title')}</h3>
           <p>{item.get('description')}</p>
         </div>
-        <div className="level">
+        <div className="level-left tags-list">
           <span className="tag">{item.get('version')}</span>
+          {this.renderExternalDocsLink()}
+          {this.renderSupportLink()}
         </div>
-        <nav className="level">
-          <div className="level-left">
-            {this.renderExternalDocsLink()}
-            {this.renderSupportLink()}
-          </div>
-        </nav>
+        <div className="level-left buttons-list">
+          <OpenInButtonComponent url={swaggerUrl}
+                                 name={item.get('title')}
+                                 formatName="Swagger"
+                                 format="swagger" />
+          <OpenInButtonComponent url={swaggerUrl}
+                                 name={item.get('title')}
+                                 formatName="RAML"
+                                 format="raml" />
+          <OpenInPawButtonComponent url={swaggerUrl} />
+          <OpenInButtonComponent url={swaggerUrl}
+                                 name={item.get('title')}
+                                 formatName="Postman"
+                                 format="postman" />
+        </div>
       </div>
     </article>
   }
@@ -123,9 +140,9 @@ export default class SearchComponent extends Component {
       })
     }
     index.search(searchText, {
-        hitsPerPage: 20
+      hitsPerPage: 20
     }, (err, content) => {
-        this.onSearchComplete(err, content, searchN)
+      this.onSearchComplete(err, content, searchN)
     })
   }
 

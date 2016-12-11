@@ -101,6 +101,18 @@ anymatch@^1.3.0:
     arrify "^1.0.0"
     micromatch "^2.1.5"
 
+api-flow@^0.0.22:
+  version "0.0.22"
+  resolved "https://registry.yarnpkg.com/api-flow/-/api-flow-0.0.22.tgz#6975c477b0e0bfd63bec1e80c5f22ff135cde5fb"
+  dependencies:
+    babel-plugin-transform-flow-strip-types "6.3.15"
+    babel-polyfill "6.3.14"
+    babel-runtime "6.3.19"
+    immutable "3.7.6"
+    js-yaml "3.5.5"
+    swagger-schema-official "2.0.0-bab6bed"
+    tv4 "1.2.7"
+
 aproba@^1.0.3:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/aproba/-/aproba-1.0.4.tgz#2713680775e7614c8ba186c065d4e2e52d1072c0"
@@ -112,7 +124,7 @@ are-we-there-yet@~1.1.2:
     delegates "^1.0.0"
     readable-stream "^2.0.0 || ^1.1.13"
 
-argparse@^1.0.7:
+argparse@^1.0.2, argparse@^1.0.7:
   version "1.0.9"
   resolved "https://registry.yarnpkg.com/argparse/-/argparse-1.0.9.tgz#73d83bc263f86e97f8cc4f6bae1b0e90a7d22c86"
   dependencies:
@@ -681,6 +693,13 @@ babel-plugin-transform-export-extensions@^6.3.13:
     babel-plugin-syntax-export-extensions "^6.8.0"
     babel-runtime "^6.0.0"
 
+babel-plugin-transform-flow-strip-types@6.3.15:
+  version "6.3.15"
+  resolved "https://registry.yarnpkg.com/babel-plugin-transform-flow-strip-types/-/babel-plugin-transform-flow-strip-types-6.3.15.tgz#5fd3be8cbc9c490b05e87f424afbe36deff9e61a"
+  dependencies:
+    babel-plugin-syntax-flow "^6.3.13"
+    babel-runtime "^5.0.0"
+
 babel-plugin-transform-flow-strip-types@^6.3.13:
   version "6.18.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-transform-flow-strip-types/-/babel-plugin-transform-flow-strip-types-6.18.0.tgz#4d3e642158661e9b40db457c004a30817fa32592"
@@ -741,6 +760,14 @@ babel-plugin-transform-strict-mode@^6.18.0:
   dependencies:
     babel-runtime "^6.0.0"
     babel-types "^6.18.0"
+
+babel-polyfill@6.3.14:
+  version "6.3.14"
+  resolved "https://registry.yarnpkg.com/babel-polyfill/-/babel-polyfill-6.3.14.tgz#1872298ede5b9f7b02ec7807bd3dd301c189c440"
+  dependencies:
+    babel-regenerator-runtime "^6.3.13"
+    babel-runtime "^5.0.0"
+    core-js "^1.0.1"
 
 babel-polyfill@6.7.4:
   version "6.7.4"
@@ -836,6 +863,12 @@ babel-register@6.7.2, babel-register@^6.7.2:
     mkdirp "^0.5.1"
     path-exists "^1.0.0"
     source-map-support "^0.2.10"
+
+babel-runtime@6.3.19:
+  version "6.3.19"
+  resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.3.19.tgz#f2db696c3c8c379881e2a53665e02187074dc681"
+  dependencies:
+    core-js "^1.2.0"
 
 babel-runtime@^5.0.0:
   version "5.8.38"
@@ -1219,7 +1252,7 @@ cookiejar@2.0.6:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/cookiejar/-/cookiejar-2.0.6.tgz#0abf356ad00d1c5a219d88d44518046dd026acfe"
 
-core-js@^1.0.0:
+core-js@^1.0.0, core-js@^1.0.1, core-js@^1.2.0:
   version "1.2.7"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-1.2.7.tgz#652294c14651db28fa93bd2d5ff2983a4f08c636"
 
@@ -2386,6 +2419,13 @@ js-cookie@2.1.0:
 js-tokens@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-2.0.0.tgz#79903f5563ee778cc1162e6dcf1a0027c97f9cb5"
+
+js-yaml@3.5.5:
+  version "3.5.5"
+  resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.5.5.tgz#0377c38017cabc7322b0d1fbcd25a491641f2fbe"
+  dependencies:
+    argparse "^1.0.2"
+    esprima "^2.6.0"
 
 js-yaml@^3.5.1:
   version "3.7.0"
@@ -4024,6 +4064,10 @@ svgo@^0.7.0:
     sax "~1.2.1"
     whet.extend "~0.9.9"
 
+swagger-schema-official@2.0.0-bab6bed:
+  version "2.0.0-bab6bed"
+  resolved "https://registry.yarnpkg.com/swagger-schema-official/-/swagger-schema-official-2.0.0-bab6bed.tgz#70070468d6d2977ca5237b2e519ca7d06a2ea3fd"
+
 symbol-observable@^0.2.4:
   version "0.2.4"
   resolved "https://registry.yarnpkg.com/symbol-observable/-/symbol-observable-0.2.4.tgz#95a83db26186d6af7e7a18dbd9760a2f86d08f40"
@@ -4103,6 +4147,10 @@ tty-browserify@0.0.0:
 tunnel-agent@^0.4.3, tunnel-agent@~0.4.1:
   version "0.4.3"
   resolved "https://registry.yarnpkg.com/tunnel-agent/-/tunnel-agent-0.4.3.tgz#6373db76909fe570e08d73583365ed828a74eeeb"
+
+tv4@1.2.7:
+  version "1.2.7"
+  resolved "https://registry.yarnpkg.com/tv4/-/tv4-1.2.7.tgz#bd29389afc73ade49ae5f48142b5d544bf68d120"
 
 tweetnacl@^0.14.3, tweetnacl@~0.14.0:
   version "0.14.4"
