@@ -192,9 +192,7 @@ class WebpackConfigProduction extends WebpackConfigBase {
     new StringReplacePlugin(),
     new webpack.optimize.UglifyJsPlugin({
       minimize: true,
-      mangle: {
-        except: Immutable.List([ '$super', '$', 'exports', 'require' ])
-      },
+      mangle: false,
       compress: {
         warnings: false,
         sequences: true,
