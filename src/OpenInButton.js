@@ -79,11 +79,7 @@ export default class OpenInButtonComponent extends Component {
 
   convertAndOpen() {
     const { name, url, format } = this.props
-    const { loading, result } = this.state
-    if (result !== null) {
-      downloadFileName(result, getFilename(name, format))
-      return
-    }
+    const { loading } = this.state
     if (loading) {
       return
     }
